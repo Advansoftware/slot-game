@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fortune Tiger Slot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="slot-bg">
+        <canvas id="slot-canvas" width="600" height="600" style="transform: translateZ(0);"></canvas>
+        <img id="sprite-sheet" src="icons_preto.png" style="display:none;" alt="sprites">
+        <div id="controls">
+            <button id="spin-btn">GIRAR</button>
+            <div id="feedback"></div>
+        </div>
+    </div>
+    <!-- Comentar os áudios temporariamente até ter os arquivos -->
+    <!--
+    <audio id="spin-sound" src="assets/spin.mp3"></audio>
+    <audio id="win-sound" src="assets/win.mp3"></audio>
+    <audio id="multiplier-sound" src="assets/multiplier.mp3"></audio>
+    -->
+    <script>
+        // Criar elementos de áudio vazios para evitar erros
+        const dummyAudio = new Audio();
+        dummyAudio.volume = 0;
+        ['spin-sound', 'win-sound', 'multiplier-sound'].forEach(id => {
+            const audio = dummyAudio.cloneNode();
+            audio.id = id;
+            document.body.appendChild(audio);
+        });
+    </script>
+    <!-- Inverter ordem dos scripts -->
+    <script src="slot.js"></script>
+    <script src="slotEffects.js"></script>
+</body>
+</html>
